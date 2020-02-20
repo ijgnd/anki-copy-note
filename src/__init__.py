@@ -1,1 +1,1 @@
-from . import copyNote, debug
+from . import copyNote
