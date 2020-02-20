@@ -1,10 +1,47 @@
 {
-  "Shortcut: copy":"Ctrl+C",
-  "Preserve creation time" : true,
-  "Preserve ease, due, interval...": true,
-  "Copy log": true,
-  "correct import": true,
-  "current tag prefix": "relation_",
-  "tag prefixes": ["relation_"],
-  "relate copies": false
+    "Shortcut__menu": "Ctrl+ä",
+    "menu_use_alternative_keys_for_navigation":true,
+    "menu_keyalt_for_arrow_down": "j",
+    "menu_keyalt_for_arrow_up": "k",
+    "menu_keyalt_for_arrow_left": "h",
+    "menu_keyalt_for_arrow_right": "l",
+    "menu_keyalt_for_return": "space",
+    "quicksets": 
+        [
+            {
+                "label": "just duplicate",
+                "shortcut": "Ctrl+Shift+ä",
+                "keepCreationTime": false,
+                "keepIvlEtc": false,
+                "keepLog": false,
+                "keepContent": true
+            },
+            {
+                "label": "preserve creation time ...",
+                "shortcut": "Ctrl+Alt+ä",
+                "keepCreationTime": "after",
+                "keepIvlEtc": true,
+                "keepLog": true,
+                "keepContent": true
+            },
+            {
+                "label": "empty before ...",
+                "shortcut": "",
+                "keepCreationTime": "before",
+                "keepIvlEtc": false,
+                "keepLog": false,
+                "keepContent": false
+            },
+            {
+                "label": "empty after ...",
+                "shortcut": "",
+                "keepCreationTime": "after",
+                "keepIvlEtc": false,
+                "keepLog": false,
+                "keepContent": false
+            }
+    ],
+    "relate: tag prefix - current": "relation_",
+    "relate: tag prefixes": ["relation_"],
+    "relate copies": false
 }
