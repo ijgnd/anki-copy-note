@@ -7,11 +7,11 @@
 #   https://github.com/Arthur-Milchior/anki-copy-note/blob/ea591e790ae0400f5183783df3e8f6c93e2362ae/copyNote.py#L152
 
 
+from anki.hooks import addHook
+from anki.importing.anki2 import Anki2Importer
+from anki.utils import guid64
 from aqt import mw
 from aqt.utils import askUser
-from anki.hooks import addHook
-from anki.utils import guid64
-
 
 from .config import gc
 
