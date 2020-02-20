@@ -22,7 +22,7 @@ def _getUserOption():
     if userOption is None:
         userOption = mw.addonManager.getConfig(__name__)
 
-def getUserOption(key = None, default = None):
+def gc(key = None, default = None):
     _getUserOption()    
     if key is None:
         return userOption
@@ -31,7 +31,7 @@ def getUserOption(key = None, default = None):
     else:
         return default
 
-lastVersion = getUserOption(version, 0)
+lastVersion = gc(version, 0)
 if lastVersion < version:
     newVersion()
     pass
@@ -58,7 +58,7 @@ def getFromName(name):
     global fromName
     if fromName is None:
         fromName = dict()
-        for dic in getUserOption("columns"):
+        for dic in gc("columns"):
             fromName[dic["name"]]=dic
     return fromName.get(name)
 
