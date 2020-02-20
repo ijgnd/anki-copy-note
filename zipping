@@ -1,2 +1,0 @@
-rm copyNotes.zip
-zip copyNotes.zip config.* *py  LICENSE *.md zipping ankiweb --exclude \*~ \*zip
