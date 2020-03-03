@@ -1,5 +1,6 @@
 {
-    "Shortcut__menu": "Ctrl+ä",
+    "Shortcut__menu": "Meta+Shift+g",
+    "editor context menu in browser show new before/after": true,
     "menu_use_alternative_keys_for_navigation":true,
     "menu_keyalt_for_arrow_down": "j",
     "menu_keyalt_for_arrow_up": "k",
@@ -11,34 +12,47 @@
             {
                 "label": "just duplicate",
                 "shortcut": "Ctrl+Shift+ä",
+                "keep-note-type": true,
+                "keepContent": true,
                 "keepCreationTime": false,
                 "keepIvlEtc": false,
-                "keepLog": false,
-                "keepContent": true
+                "keepLog": false
             },
             {
                 "label": "preserve creation time ...",
                 "shortcut": "Ctrl+Alt+ä",
+                "keep-note-type": true,
+                "keepContent": true,
                 "keepCreationTime": "after",
                 "keepIvlEtc": true,
-                "keepLog": true,
-                "keepContent": true
+                "keepLog": true
             },
             {
                 "label": "empty before ...",
                 "shortcut": "",
+                "keep-note-type": true,
+                "keepContent": false,
                 "keepCreationTime": "before",
                 "keepIvlEtc": false,
-                "keepLog": false,
-                "keepContent": false
+                "keepLog": false
+            },
+            {
+                "label": "empty before (and select model)",
+                "shortcut": "",
+                "keep-note-type": false,
+                "keepContent": false,
+                "keepCreationTime": "before",
+                "keepIvlEtc": false,
+                "keepLog": false
             },
             {
                 "label": "empty after ...",
                 "shortcut": "",
+                "keep-note-type": true,
+                "keepContent": false,
                 "keepCreationTime": "after",
                 "keepIvlEtc": false,
-                "keepLog": false,
-                "keepContent": false
+                "keepLog": false
             }
     ],
     "relate: tag prefix - current": "relation_",

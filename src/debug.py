@@ -1,4 +1,4 @@
-# this file contains the original debug.py from 
+# this file contains the original debug.py
 #
 # this file also includes from copyNote.py the _uniquifyNote part
 #    see https://github.com/Arthur-Milchior/anki-copy-note/blob/ea591e790ae0400f5183783df3e8f6c93e2362ae/copyNote.py#L113
