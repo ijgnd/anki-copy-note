@@ -1,6 +1,6 @@
 # Copyright: Arthur Milchior arthur@milchior.fr
 #            2017 Glutanimate
-#            2019- ijgnd           
+#            2019- ijgnd
 # License: GNU GPL, version 3 or later; http://www.gnu.org/copyleft/gpl.html
 
 import uuid
@@ -134,14 +134,15 @@ def get_new_nid(sourcenid, keepCreationTime):
     return newnid
 
 
-def create_new_empty_note(newnid, did, model, tags=False):
+def create_new_empty_note(model, did=None, newnid=None, fields=None, tags=None):
     # source card is relevant to determine the new deck: If only one card for the note is 
     # selected use its deck, else ask user
-    source_deck = mw.col.decks.get(did)
-    # Assign model to deck
-    mw.col.decks.select(did)
-    source_deck['mid'] = model['id']
-    mw.col.decks.save(source_deck)
+    if did:
+        source_deck = mw.col.decks.get(did)
+        # Assign model to deck
+        mw.col.decks.select(did)
+        source_deck['mid'] = model['id']
+        mw.col.decks.save(source_deck)
     # Assign deck to model
     mw.col.models.setCurrent(model)
     model['did'] = did
@@ -149,14 +150,18 @@ def create_new_empty_note(newnid, did, model, tags=False):
     
     # Create new note
     new_note = mw.col.newNote()
-    new_note.id = newnid
-    # original solution: fill all fields to avoid notes without cards
-    #    fields = ["."] * len(new_note.fields)
-    # problem: That's a hassle for note types that generate e.g. up to 20 cards ...
-    # for details see helpers.py
-    new_note.fields = [""] * len(new_note.fields)
-    for i in fields_to_fill_for_nonempty_front_template(new_note.mid):
-        new_note.fields[i] = "."
+    if newnid:
+        new_note.id = newnid
+    if fields:
+        new_note.fields = fields
+    else:
+        # original solution: fill all fields to avoid notes without cards
+        #    fields = ["."] * len(new_note.fields)
+        # problem: That's a hassle for note types that generate e.g. up to 20 cards ...
+        # for details see helpers.py
+        new_note.fields = [""] * len(new_note.fields)
+        for i in fields_to_fill_for_nonempty_front_template(new_note.mid):
+            new_note.fields[i] = "."
 
     if tags:
         new_note.tags = tags
@@ -173,8 +178,7 @@ def new_note(parent, sourcenid, cidlist, keepNotetype, keepCreationTime, tags):
     model = get_model(parent, sourcenid, keepNotetype)
     newnid = get_new_nid(sourcenid, keepCreationTime)
     if newnid:
-        create_new_empty_note(newnid, did, model, tags)
-
+        create_new_empty_note(model, did, newnid, fields=None, tags=tags)
 
 # Do I need to adjust the cids?
 # + looks nicer, who knows why I might need this in the future
