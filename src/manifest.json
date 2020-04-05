@@ -1,0 +1,5 @@
+{
+    "package": "720525089",
+    "name": "duplicate note/insert empty note with faked noteid (copy notes fork)",
+    "conflicts": ["1463041493"]
+}
