@@ -1,5 +1,5 @@
 from aqt import mw
-from aqt.qt import *
+from aqt.qt import QPushButton
 
 from aqt.studydeck import StudyDeck
 
