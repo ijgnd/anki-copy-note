@@ -1,3 +1,17 @@
+# Fork of Arthur's copy note
+
+This Anki add-on allows to duplicate notes while keeping several properties of the original note and 
+to insert virtually empty notes with a faked creation time, i.e. a nid that's close to an 
+existing one in the browser.
+
+Use this version at your own risk. It may permanently damage your collection.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+**ORIGINAL DESCRIPTION FROM ARTHUR**
+
 # Copy notes
 
 Copy cards, either as new cards, or preserving
