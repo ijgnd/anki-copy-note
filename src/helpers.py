@@ -45,6 +45,8 @@ def myFieldsOnTemplate(fmt):
 #    - only fill these fields
 def fields_to_fill_for_nonempty_front_template(mid):
     wco = mw.col.findCards("mid:%s card:1" %mid)
+    if not wco:  # no note of the note type exists
+        return False
     totalcards = {}
     for cid in wco:
         card = mw.col.getCard(cid)
