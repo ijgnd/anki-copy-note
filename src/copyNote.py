@@ -195,7 +195,13 @@ def copyCard(card, note, keepCreationTime, keepIvlEtc, log):
         before = True
     else:
         before = False
-    card.id = timestampID(note.col.db, "cards", t, before)
+    # card.id = timestampID(note.col.db, "cards", t, before)
+    # the line on top was replaced in the original by Arthur for 2.1.25, see 
+    # https://github.com/Arthur-Milchior/anki-copy-note/commit/91fa298e527a93f95d97c5671fd6cb5dbf138f14 
+    # Setting id to 0 is Card is seen as new; which lead to a different process in backend
+    card.id = 0
+    new_cid = timestampID(note.col.db, "cards", t, before)
+
     if not keepIvlEtc:
         card.type = 0
         card.ivl = 0
@@ -206,6 +212,9 @@ def copyCard(card, note, keepCreationTime, keepIvlEtc, log):
         card.odue = 0
     card.nid = note.id
     card.flush()
+    if t:
+        mw.col.db.execute("update Cards set id = ? where id = ?", new_cid, card.id)
+        card.id = new_cid
     if log:
         for data in mw.col.db.all("select * from revlog where id = ?", oid):
             copyLog(data, card.id)
